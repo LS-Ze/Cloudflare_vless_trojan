@@ -6,7 +6,7 @@ import { connect } from "cloudflare:sockets";
 // [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
 let userID = "77a571fb-4fd2-4b37-8596-1b7d9728bb5c";
 
-const proxyIPs = ["proxy.xxxxxxxx.tk"]; //ts.hpc.tw edgetunnel.anycast.eu.org bestproxy.onecf.eu.org cdn-all.xn--b6gac.eu.org cdn.xn--b6gac.eu.org proxy.xxxxxxxx.tk
+const proxyIPs = ["ts.hpc.tw"]; //ts.hpc.tw edgetunnel.anycast.eu.org bestproxy.onecf.eu.org cdn-all.xn--b6gac.eu.org cdn.xn--b6gac.eu.org proxy.xxxxxxxx.tk
 const cn_hostnames = [''];
 let CDNIP = 'www.visa.com.sg'
 // http_ip
@@ -56,7 +56,7 @@ export default {
    * @param {import("@cloudflare/workers-types").ExecutionContext} ctx
    * @returns {Promise<Response>}
    */
-  async fetch(request, env, ctx) {
+  async fetch(请求, env, ctx) {
     try {
       userID = env.uuid || userID;
       proxyIP = env.proxyip || proxyIP;
