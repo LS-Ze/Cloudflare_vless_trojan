@@ -56,7 +56,7 @@ export default {
    * @param {import("@cloudflare/workers-types").ExecutionContext} ctx
    * @returns {Promise<Response>}
    */
-  async fetch(请求, env, ctx) {
+  async fetch(request, env, ctx) {
     try {
       userID = env.uuid || userID;
       proxyIP = env.proxyip || proxyIP;
