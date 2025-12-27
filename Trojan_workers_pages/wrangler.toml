@@ -1,21 +1,11 @@
-# Cloudflare Pages Configuration for VLESS Trojan
+# 这三个属性是Cloudflare Pages的核心要求
 name = "cloudflare-vless-trojan"
 compatibility_date = "2025-12-27"
+pages_build_output_dir = "."  # 必须要有这个！
+
+# 这是解决Node.js模块问题的关键
 compatibility_flags = ["nodejs_compat"]
 
-# Environment variables
-[vars]
-# Add your environment variables here
-# VLESS_UUID = "your-uuid-here"
-# VLESS_WS_PATH = "/vless-ws"
-# TROJAN_PASSWORD = "your-password-here"
-# TROJAN_WS_PATH = "/trojan-ws"
-
-# Pages-specific configuration
-[pages]
-dir = "."
-build_output_dir = "."
-
-# 关键：构建命令 - 部署前自动替换为混淆版本
+# 这是实现混淆部署的构建命令
 [build]
 command = "if [ -f _worker混淆.js ]; then cp _worker混淆.js _worker.js; fi"
