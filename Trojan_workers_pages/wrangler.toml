@@ -1,30 +1,19 @@
-# Cloudflare VLESS Trojan Configuration
+# Cloudflare Pages Configuration for VLESS Trojan
 name = "cloudflare-vless-trojan"
 compatibility_date = "2025-12-27"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = "."
-
-# Enable Node.js compatibility
-node_compat = true
 
 # Environment variables
 [vars]
-# 在这里添加您的环境变量
-# 例如:
+# Add your environment variables here
 # VLESS_UUID = "your-uuid-here"
 # VLESS_WS_PATH = "/vless-ws"
 # TROJAN_PASSWORD = "your-password-here"
 # TROJAN_WS_PATH = "/trojan-ws"
 
-# Build configuration
-[build]
-command = "exit 0"
-upload.format = "service-worker"
-
-# Pages configuration
+# Pages-specific configuration
 [pages]
+# Directory to serve static assets from
 dir = "."
-
-# Workers configuration
-[workers]
-compatibility_flags = ["nodejs_compat"]
+# Build output directory
+build_output_dir = "."
