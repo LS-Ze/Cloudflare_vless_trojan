@@ -1,0 +1,10 @@
+name = "Cloudflare_vless_trojan"
+type = "javascript"
+workers_dev = true
+route = ""
+zone_id = ""
+
+[build]
+command = "cp nat64套壳版混淆.js _worker.js"
+[build.upload]
+format = "service-worker"
