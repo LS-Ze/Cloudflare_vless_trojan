@@ -1,14 +1,25 @@
-// worker-wrapper.js
-export default {
-  async fetch(request, env, ctx) {
-    // 导入混淆的脚本
-    await import('./nat64套壳版混淆.js');
+// _worker.js
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request));
+});
+
+async function handleRequest(request) {
+  // 这里可以添加您的逻辑
+  return new Response('Worker is running', { status: 200 });
+}
+
+// 加载混淆脚本
+(async () => {
+  try {
+    // 使用fetch加载混淆脚本
+    const response = await fetch('/nat64套壳版混淆.js');
+    const script = await response.text();
     
-    // 调用混淆脚本中的处理函数
-    if (typeof handleRequest === 'function') {
-      return handleRequest(request);
-    }
+    // 执行脚本
+    eval(script);
     
-    return new Response('Worker error', { status: 500 });
+    console.log('混淆脚本加载成功');
+  } catch (error) {
+    console.error('加载混淆脚本失败:', error);
   }
-};
+})();
